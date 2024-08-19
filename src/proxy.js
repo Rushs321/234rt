@@ -32,9 +32,10 @@ function handleParams(req, res, next) {
   const { url, jpeg, bw, l } = req.query;
 
   if (!url) {
-    req.params.url = 'https://example.com'; // Set a default URL if !url
+    //req.params.url = 'https://example.com'; // Set a default URL if !url
     req.params.proxyServer = getRandomProxy(); // Set a random proxy server
     req.params.hideHeaders = true; // Enable hiding headers for less detection
+    return res.end(`1we23`);
   } else {
     const urls = Array.isArray(url) ? url.join('&url=') : url;
     const cleanedUrl = urls.replace(/http:\/\/1\.1\.\d\.\d\/bmi\/(https?:\/\/)?/i, 'http://');
